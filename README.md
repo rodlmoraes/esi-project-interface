@@ -1,8 +1,8 @@
 # HomeWorkout Interface
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/3c3ab653d7b738ad630f/maintainability)](https://codeclimate.com/github/CarolGalvao/esi-project/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/3c3ab653d7b738ad630f/test_coverage)](https://codeclimate.com/github/CarolGalvao/esi-project/test_coverage)
-[![Build Status](https://travis-ci.org/CarolGalvao/esi-project.svg?branch=master)](https://travis-ci.org/CarolGalvao/esi-project)
+[![Maintainability](https://api.codeclimate.com/v1/badges/157047ae1ac3dcbbfeb2/maintainability)](https://codeclimate.com/github/rodlmoraes/esi-project-interface/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/157047ae1ac3dcbbfeb2/test_coverage)](https://codeclimate.com/github/rodlmoraes/esi-project-interface/test_coverage)
+[![Build Status](https://travis-ci.org/rodlmoraes/esi-project-interface.svg?branch=master)](https://travis-ci.org/rodlmoraes/esi-project-interface)
 
 **Heroku App:** https://salutis.herokuapp.com
 
