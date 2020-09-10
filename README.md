@@ -4,9 +4,9 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/157047ae1ac3dcbbfeb2/test_coverage)](https://codeclimate.com/github/rodlmoraes/esi-project-interface/test_coverage)
 [![Build Status](https://travis-ci.org/rodlmoraes/esi-project-interface.svg?branch=master)](https://travis-ci.org/rodlmoraes/esi-project-interface)
 
-**Heroku App:** https://salutis.herokuapp.com
+**Heroku App:** https://homeworkout.herokuapp.com/
 
-**Github Repo:** https://github.com/CarolGalvao/esi-project
+**Backend Repo:** https://github.com/CarolGalvao/esi-project
 
 ## Integrantes
 
