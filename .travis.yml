@@ -16,7 +16,7 @@ before_script:
   - ./cc-test-reporter before-build
 script:
   - npm run coverage
-  - yarn test --coverage
+  - yarn test
   - yarn build
 after_success:
   - codeclimate-test-reporter < ./coverage/lcov.info
