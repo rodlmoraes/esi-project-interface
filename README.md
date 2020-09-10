@@ -1,6 +1,4 @@
-# README
-
-# Salutis API (Nome provisório)
+# HomeWorkout Interface
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/3c3ab653d7b738ad630f/maintainability)](https://codeclimate.com/github/CarolGalvao/esi-project/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/3c3ab653d7b738ad630f/test_coverage)](https://codeclimate.com/github/CarolGalvao/esi-project/test_coverage)
