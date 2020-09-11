@@ -2,7 +2,6 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/157047ae1ac3dcbbfeb2/maintainability)](https://codeclimate.com/github/rodlmoraes/esi-project-interface/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/157047ae1ac3dcbbfeb2/test_coverage)](https://codeclimate.com/github/rodlmoraes/esi-project-interface/test_coverage)
-[![Coverage Status](https://coveralls.io/repos/github/rodlmoraes/esi-project-interface/badge.svg?branch=master)](https://coveralls.io/github/rodlmoraes/esi-project-interface?branch=master)
 [![Build Status](https://travis-ci.org/rodlmoraes/esi-project-interface.svg?branch=master)](https://travis-ci.org/rodlmoraes/esi-project-interface)
 
 **Heroku App:** https://homeworkout.herokuapp.com/
