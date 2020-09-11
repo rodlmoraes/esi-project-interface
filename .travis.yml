@@ -3,20 +3,17 @@ node_js:
   - "stable"
 env:
   - CC_TEST_REPORTER_ID=781f3820426f33297e9e33a495b90bec290c3afc24431536650f2ef014dbf364
+  - coveralls_repo_token=cuet3hc4RHJgjw5isbaUnzLauNnvX5WpJ
 addons:
   code_climate:
       repo_token: 781f3820426f33297e9e33a495b90bec290c3afc24431536650f2ef014dbf364
+  coveralls:
+    repo_token: cuet3hc4RHJgjw5isbaUnzLauNnvX5WpJ
 cache:
   directories:
   - node_modules
-before_script:
-  - yarn global add nyc
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
 script:
-  - nyc --reporter=lcov yarn test
-  - yarn test
+  - yarn test -- --coverage
   - yarn build
 after_success:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - COVERALLS_REPO_TOKEN=$coveralls_repo_token npm run coveralls
