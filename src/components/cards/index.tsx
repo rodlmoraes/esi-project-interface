@@ -67,7 +67,7 @@ export default function RecipeReviewCard() {
       />
       <CardMedia
         className={classes.media}
-        image='C:\Users\virod\Documents\Projetos\React\TRABALHO_ESI\esi-project-interface\src\assets\images\9k.png'
+        image=''
         title='Paella dish'
       />
       <CardContent>
