@@ -8,8 +8,8 @@ export default function TeacherList() {
     <>
       <h1>{PAGE_NAME}</h1>
       <OutlinedButtons/>
-      {[1, 2, 3, 4].map(() => {
-        return <RecipeReviewCard/>
+      {[1, 2, 3, 4].map(key => {
+        return <RecipeReviewCard key={key} />
       })}
     </>
   )

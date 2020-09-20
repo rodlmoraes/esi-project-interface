@@ -15,6 +15,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite'
 import ShareIcon from '@material-ui/icons/Share'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
+import TeacherImg from '../../assets/images/9k.png'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -67,7 +68,7 @@ export default function RecipeReviewCard() {
       />
       <CardMedia
         className={classes.media}
-        image=''
+        image={TeacherImg}
         title='Paella dish'
       />
       <CardContent>
