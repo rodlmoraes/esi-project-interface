@@ -6,10 +6,9 @@ import CardMedia from '@material-ui/core/CardMedia'
 import CardContent from '@material-ui/core/CardContent'
 import CardActions from '@material-ui/core/CardActions'
 import Avatar from '@material-ui/core/Avatar'
-import IconButton from '@material-ui/core/IconButton'
+import Typography from '@material-ui/core/Typography'
 import { red } from '@material-ui/core/colors'
-import MoreVertIcon from '@material-ui/icons/MoreVert'
-import TeacherImg from '../../assets/images/9k.png'
+import TeacherImg from '../assets/images/9k.png'
 import Button from '@material-ui/core/Button'
 
 const useStyles = makeStyles(() =>
@@ -17,10 +16,13 @@ const useStyles = makeStyles(() =>
     root: {
       maxWidth: 345,
       backgroundColor: '#1C1C24',
+      color: '#F5F5F7',
+      borderRadius: 15,
     },
     media: {
       height: 0,
       paddingTop: '56.25%', // 16:9
+      color: '#F5F5F7',
     },
     avatar: {
       backgroundColor: red[500],
@@ -31,6 +33,11 @@ const useStyles = makeStyles(() =>
       margin: '3.2rem',
       backgroundColor: '#C45E1A',
       color: '#F5F5F7',
+      fontWeight: 600,
+      borderRadius: 15,
+    },
+    subheader: {
+      color: '#F5F5F7',
     },
   }),
 )
@@ -40,19 +47,14 @@ export default function RecipeReviewCard() {
 
   return (
     <Card className={classes.root}>
-      <CardHeader
+      <CardHeader classes= {{ subheader: classes.subheader }}
         avatar={
           <Avatar aria-label='recipe' className={classes.avatar}>
             R
           </Avatar>
         }
-        action={
-          <IconButton aria-label='settings'>
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title='Shrimp and Chorizo Paella'
-        subheader='September 14, 2016'
+        title='Aula de Zmba'
+        subheader='September 14, 2020'
       />
       <CardMedia
         className={classes.media}
@@ -60,9 +62,13 @@ export default function RecipeReviewCard() {
         title='Paella dish'
       />
       <CardContent>
+        <Typography variant='body2' component='p'>
+          Aula para dançar bastante e emagrecer se divertindo muito observando um professor
+          gostoso para animar os olhos também.
+        </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <Button className={classes.button}>Ver aula</Button>
+        <Button className={classes.button} variant='contained' >Ver aula</Button>
       </CardActions>
     </Card>
   )
