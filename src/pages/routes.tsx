@@ -7,7 +7,7 @@ import TeacherForm from './TeacherForm'
 function Routes() {
   return (
     <BrowserRouter>
-      <Route path='/' component={TeacherList} />
+      <Route path='/list' component={TeacherList} />
       <Route path='/form' component={TeacherForm}/>
     </BrowserRouter>
   )
