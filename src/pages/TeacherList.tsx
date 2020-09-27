@@ -5,8 +5,9 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import api from '../services/api'
 import Button from '@material-ui/core/Button'
-import { Typography } from '@material-ui/core'
+import { Typography, Card, Grid} from '@material-ui/core'
 import NestedGrid from '../components/Grid'
+
 
 export default function TeacherList() {
 
@@ -17,28 +18,35 @@ export default function TeacherList() {
   async function ListLessons() {
     const response = await api.get('lessons')
     setLessons(response.data.data)
+    console.log(response.data.data)
   }
 
   return (
-    <div>
-      <h1>{PAGE_NAME}</h1>
-      <TextField
-        margin='normal'
-        placeholder='busca'
-        variant='outlined'
-        value={query}
-        onChange= {e => { setQuery(e.target.value) }}
-      />
-      <Button
-        className={classes.button}
-        variant='contained'
-        color='secondary'
-        onClick={ListLessons}>
-          Buscar
-      </Button>
-      <ul>
-        {lessons.map((lesson) => { return <li>{lesson["name"]}</li> })}
-      </ul>
+    <div className={classes.root}>
+      <Grid container spacing={3}>
+        <Grid item xs={12}>
+          <Typography variant='h3' color='textPrimary'>{PAGE_NAME}</Typography>
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            margin='normal'
+            placeholder='busca'
+            variant='outlined'
+            value={query}
+            onChange= {e => { setQuery(e.target.value) }}
+          />
+          <Button
+            className={classes.button}
+            variant='contained'
+            color='secondary'
+            onClick={ListLessons}>
+              Buscar
+          </Button>
+        </Grid>
+        <Grid item xs={12}>
+          {lessons.map((lesson) => { return <Card className={classes.root}>{lesson["name"]}</Card> })}
+        </Grid>
+      </Grid>
     </div>
   )
 }
