@@ -1,16 +1,18 @@
 import React, { useState } from 'react'
 import { PAGE_NAME } from '../constants'
-import { useHistory } from 'react-router-dom'
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
+import { createStyles, makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import api from '../services/api'
 import Button from '@material-ui/core/Button'
-import { Typography } from '@material-ui/core'
-import NestedGrid from '../components/Grid'
+
+type Lesson = {
+  name: String,
+  description: String,
+  link: String,
+}
 
 export default function TeacherList() {
-
-  const [lessons, setLessons] = useState([])
+  const [lessons, setLessons] = useState<Lesson[]>([])
   const [query, setQuery] = useState('')
   const classes = useStyles()
 
@@ -37,7 +39,7 @@ export default function TeacherList() {
           Buscar
       </Button>
       <ul>
-        {lessons.map((lesson) => { return <li>{lesson["name"]}</li> })}
+        {lessons.map((lesson, key) => { return <li key={key}>{lesson.name}</li> })}
       </ul>
     </div>
   )
@@ -49,7 +51,7 @@ const useStyles = makeStyles(() =>
       display: 'flex',
       flexDirection: 'column',
       padding: '2rem',
-        alignItems: 'center',
+      alignItems: 'center',
       borderRadius: 15,
       margin: '4rem',
     },
