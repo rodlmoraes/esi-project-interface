@@ -1,9 +1,12 @@
 import React from 'react'
-import './assets/styles/global.css'
 import Routes from './pages/routes'
+import { ThemeProvider } from '@material-ui/core'
+import theme from './assets/theme'
 
 export default function App() {
   return (
-    <Routes/>
+    <ThemeProvider theme={theme} >
+      <Routes />
+    </ThemeProvider>
   )
 }
