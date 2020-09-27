@@ -40,7 +40,7 @@ export default function TeacherForm() {
 
   return (
     <Card className={classes.root}>
-      <Typography variant='h3' color='textPrimary' >Cadastro de Aula</Typography>
+      <Typography variant='h3' color='textPrimary'>Cadastro de Aula</Typography>
       <TextField
         margin='normal'
         label='Nome da aula'
