@@ -42,7 +42,7 @@ export default function LessonList() {
           Buscar
       </Button>
       <ul>
-        {lessons.map((lesson, key) => { return <li key={key}>{lesson.name}</li> })}
+        {lessons.map((lesson, key) => <li key={key}>{lesson.name}</li>)}
       </ul>
     </>
   )
