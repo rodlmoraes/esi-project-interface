@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
+import { createStyles, makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import api from '../services/api'
 import Button from '@material-ui/core/Button'
-import { Typography } from '@material-ui/core'
+import { Typography, Card } from '@material-ui/core'
 
 export default function TeacherForm() {
   const history = useHistory()
@@ -14,31 +14,32 @@ export default function TeacherForm() {
   const [link, setLink] = useState('')
   const [description, setDescription] = useState('')
 
-  function handleCreateClass() {
-    api.post('/teachers', {
-      teacher: {
-        name: teacherName,
-      },
-    })
+  async function handleCreateClass() {
+    try {
+      await api.post('/teachers', {
+        teacher: {
+          name: teacherName,
+        },
+      })
 
-    api.post('/lessons', {
-      lesson: {
-        name: lessonName,
-        link,
-        description,
-      },
-    }).then(() => {
+      await api.post('/lessons', {
+        lesson: {
+          name: lessonName,
+          link,
+          description,
+        },
+      })
       alert('Cadastro realizado com sucesso!')
-      history.push('/')
-    }).catch(() => {
+      history.push('/list')
+    } catch {
       alert('Erro no cadastro!')
-    })
+    }
   }
 
   const classes = useStyles()
 
   return (
-    <div className={classes.root}>
+    <Card className={classes.root}>
       <Typography variant='h3' color='textPrimary' >Cadastro de Aula</Typography>
       <TextField
         margin='normal'
@@ -84,18 +85,19 @@ export default function TeacherForm() {
         onClick={handleCreateClass}>
           Salvar Cadastro
       </Button>
-    </div>
+    </Card>
   )
 }
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     root: {
       display: 'flex',
       flexDirection: 'column',
-      background: '#1C1C24',
       padding: '2rem',
       alignItems: 'center',
+      borderRadius: 15,
+      margin: '4rem',
     },
     button: {
       marginTop: '0.8rem',
