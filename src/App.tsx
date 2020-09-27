@@ -1,9 +1,13 @@
 import React from 'react'
-import './assets/styles/global.css'
-import Routes from './pages/routes'
+import Routes from './pages/Routes'
+import { ThemeProvider, CssBaseline } from '@material-ui/core'
+import theme from './assets/theme'
 
 export default function App() {
   return (
-    <Routes/>
+    <ThemeProvider theme={theme} >
+      <CssBaseline />
+      <Routes />
+    </ThemeProvider>
   )
 }
