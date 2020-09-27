@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { createStyles, makeStyles } from '@material-ui/core/styles'
-import TextField from '@material-ui/core/TextField'
-import api from '../services/api'
 import Button from '@material-ui/core/Button'
 import { Typography, Card } from '@material-ui/core'
 
-export default function TeacherForm() {
+import TextInput from 'src/components/TextInput'
+
+import api from '../services/api'
+
+export default function LessonForm() {
   const history = useHistory()
 
   const [teacherName, setTeacherName] = useState('')
@@ -14,7 +16,7 @@ export default function TeacherForm() {
   const [link, setLink] = useState('')
   const [description, setDescription] = useState('')
 
-  async function handleCreateClass() {
+  const handleCreateClass = async () => {
     try {
       await api.post('/teachers', {
         teacher: {
@@ -30,7 +32,7 @@ export default function TeacherForm() {
         },
       })
       alert('Cadastro realizado com sucesso!')
-      history.push('/list')
+      history.push('/')
     } catch {
       alert('Erro no cadastro!')
     }
@@ -40,49 +42,39 @@ export default function TeacherForm() {
 
   return (
     <Card className={classes.root}>
-      <Typography variant='h3' color='textPrimary'>Cadastro de Aula</Typography>
-      <TextField
-        margin='normal'
+      <Typography variant='h3'>Cadastro de Aula</Typography>
+      <TextInput
         label='Nome da aula'
-        placeholder='Aula de'
-        fullWidth
-        variant='outlined'
-        value={lessonName}
         onChange= {e => { setLessonName(e.target.value) }}
+        placeholder='Aula de'
+        value={lessonName}
       />
-      <TextField
-        margin='normal'
+      <TextInput
         label='Nome do Professor'
-        placeholder='Nome'
-        fullWidth
-        variant='outlined'
-        value={teacherName}
         onChange= {e => { setTeacherName(e.target.value) }}
+        placeholder='Nome'
+        value={teacherName}
       />
-      <TextField
-        margin='normal'
+      <TextInput
         label='Link da Aula'
-        placeholder='Link do Youtube'
-        fullWidth
-        variant='outlined'
-        value={link}
         onChange= {e => { setLink(e.target.value) }}
+        placeholder='Link do Youtube'
+        value={link}
       />
-      <TextField
-        margin='normal'
+      <TextInput
         label='Descrição da Aula'
-        placeholder='Descrição'
-        fullWidth
-        variant='outlined'
-        value={description}
+        multiline
         onChange= {e => { setDescription(e.target.value) }}
+        placeholder='Descrição'
+        value={description}
       />
       <Button
         className={classes.button}
-        variant='contained'
         color='secondary'
+        onClick={handleCreateClass}
         size='large'
-        onClick={handleCreateClass}>
+        variant='contained'
+      >
           Salvar Cadastro
       </Button>
     </Card>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { makeStyles, createStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
 import CardHeader from '@material-ui/core/CardHeader'
@@ -34,7 +34,7 @@ const useStyles = makeStyles(() =>
   }),
 )
 
-export default function RecipeReviewCard() {
+export default function LessonCard() {
   const classes = useStyles()
 
   return (

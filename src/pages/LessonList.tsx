@@ -1,29 +1,32 @@
-import React, { useState } from 'react'
-import { PAGE_NAME } from '../constants'
+import React, { useEffect, useState } from 'react'
 import { createStyles, makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
-import api from '../services/api'
 import Button from '@material-ui/core/Button'
+import { Typography } from '@material-ui/core'
+
+import api from '../services/api'
 
 type Lesson = {
-  name: String,
-  description: String,
-  link: String,
+  name: string,
+  description: string,
+  link: string,
 }
 
-export default function TeacherList() {
+export default function LessonList() {
   const [lessons, setLessons] = useState<Lesson[]>([])
   const [query, setQuery] = useState('')
   const classes = useStyles()
 
-  async function ListLessons() {
+  const listLessons = async () => {
     const response = await api.get('lessons')
     setLessons(response.data.data)
   }
 
+  useEffect(() => { listLessons() }, [])
+
   return (
-    <div>
-      <h1>{PAGE_NAME}</h1>
+    <>
+      <Typography variant='h3'>Cursos disponíveis</Typography>
       <TextField
         margin='normal'
         placeholder='busca'
@@ -35,13 +38,13 @@ export default function TeacherList() {
         className={classes.button}
         variant='contained'
         color='secondary'
-        onClick={ListLessons}>
+        onClick={listLessons}>
           Buscar
       </Button>
       <ul>
         {lessons.map((lesson, key) => { return <li key={key}>{lesson.name}</li> })}
       </ul>
-    </div>
+    </>
   )
 }
 
