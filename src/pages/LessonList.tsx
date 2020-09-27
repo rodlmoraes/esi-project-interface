@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { createStyles, makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
-import { Typography } from '@material-ui/core'
-
 import api from '../services/api'
+import { Typography, Card, Grid} from '@material-ui/core'
 
 type Lesson = {
   name: string,
@@ -20,31 +19,38 @@ export default function LessonList() {
   const listLessons = async () => {
     const response = await api.get('lessons')
     setLessons(response.data.data)
+    console.log(response.data.data)
   }
 
   useEffect(() => { listLessons() }, [])
 
   return (
-    <>
-      <Typography variant='h3'>Cursos disponíveis</Typography>
-      <TextField
-        margin='normal'
-        placeholder='busca'
-        variant='outlined'
-        value={query}
-        onChange= {e => { setQuery(e.target.value) }}
-      />
-      <Button
-        className={classes.button}
-        variant='contained'
-        color='secondary'
-        onClick={listLessons}>
-          Buscar
-      </Button>
-      <ul>
-        {lessons.map((lesson, key) => <li key={key}>{lesson.name}</li>)}
-      </ul>
-    </>
+    <div className={classes.root}>
+      <Grid container spacing={3}>
+        <Grid item xs={12}>
+          <Typography variant='h3' color='textPrimary'>{PAGE_NAME}</Typography>
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            margin='normal'
+            placeholder='busca'
+            variant='outlined'
+            value={query}
+            onChange= {e => { setQuery(e.target.value) }}
+          />
+          <Button
+            className={classes.button}
+            variant='contained'
+            color='secondary'
+            onClick={ListLessons}>
+              Buscar
+          </Button>
+        </Grid>
+        <Grid item xs={12}>
+          {lessons.map((lesson) => { return <Card className={classes.root}>{lesson["name"]}</Card> })}
+        </Grid>
+      </Grid>
+    </div>
   )
 }
 

@@ -10,7 +10,6 @@ function Routes() {
   return (
     <BrowserRouter>
       <Route path='/' component={LessonList} exact />
-      <Route path='/grid' component={NestedGrid} exact />
       <Route path='/cadastrar-aula' component={LessonForm}/>
     </BrowserRouter>
   )
