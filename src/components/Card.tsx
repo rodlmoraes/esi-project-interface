@@ -15,14 +15,11 @@ const useStyles = makeStyles(() =>
   createStyles({
     root: {
       maxWidth: 345,
-      backgroundColor: '#1C1C24',
-      color: '#F5F5F7',
       borderRadius: 15,
     },
     media: {
       height: 0,
       paddingTop: '56.25%', // 16:9
-      color: '#F5F5F7',
     },
     avatar: {
       backgroundColor: red[500],
@@ -31,13 +28,8 @@ const useStyles = makeStyles(() =>
       width: '250px',
       height: '50px',
       margin: '3.2rem',
-      backgroundColor: '#C45E1A',
-      color: '#F5F5F7',
       fontWeight: 600,
       borderRadius: 15,
-    },
-    subheader: {
-      color: '#F5F5F7',
     },
   }),
 )
@@ -47,7 +39,7 @@ export default function RecipeReviewCard() {
 
   return (
     <Card className={classes.root}>
-      <CardHeader classes= {{ subheader: classes.subheader }}
+      <CardHeader
         avatar={
           <Avatar aria-label='recipe' className={classes.avatar}>
             R
@@ -68,7 +60,7 @@ export default function RecipeReviewCard() {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <Button className={classes.button} variant='contained' >Ver aula</Button>
+        <Button className={classes.button} variant='contained' color='primary' >Ver aula</Button>
       </CardActions>
     </Card>
   )
