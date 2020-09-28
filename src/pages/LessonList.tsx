@@ -21,7 +21,6 @@ export default function LessonList() {
   const listLessons = async () => {
     const response = await api.get('lessons')
     setLessons(response.data.data)
-    console.log(response.data.data)
   }
 
   useEffect(() => { listLessons() }, [])
