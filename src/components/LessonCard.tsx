@@ -34,7 +34,7 @@ const useStyles = makeStyles(() =>
   }),
 )
 
-export default function RecipeReviewCard() {
+export default function LessonCard() {
   const classes = useStyles()
 
   return (

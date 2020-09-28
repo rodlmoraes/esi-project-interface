@@ -1,14 +1,17 @@
 
 import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
-import TeacherList from './TeacherList'
-import TeacherForm from './TeacherForm'
+import NestedGrid from 'src/components/NestedGrid'
+
+import LessonList from './LessonList'
+import LessonForm from './LessonForm'
 
 function Routes() {
   return (
     <BrowserRouter>
-      <Route path='/list' component={TeacherList} />
-      <Route path='/form' component={TeacherForm}/>
+      <Route path='/' component={LessonList} exact />
+      <Route path='/grid' component={NestedGrid} exact />
+      <Route path='/cadastrar-aula' component={LessonForm}/>
     </BrowserRouter>
   )
 }

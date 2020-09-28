@@ -1,10 +1,10 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 
-import TeacherForm from 'src/pages/TeacherForm'
+import LessonForm from 'src/pages/LessonForm'
 
 test('renders learn react link', () => {
-  const { getByText } = render(<TeacherForm />)
+  const { getByText } = render(<LessonForm />)
   const pageName = getByText(/Cadastro de Aula/i)
   expect(pageName).toBeDefined()
 })
