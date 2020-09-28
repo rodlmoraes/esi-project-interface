@@ -32,13 +32,6 @@ export default function LessonList() {
         <Grid item xs={12}>
           <Typography variant='h3' color='textPrimary'>Aulas disponíveis</Typography>
         </Grid>
-        <Grid xs={12}>
-          <Button
-            onClick={listLessons}
-          >
-            Carregar aulas
-          </Button>
-        </Grid>
         {lessons.map(({  name, description, link }) => { return <Grid xs={3}><LessonCard name={name} description={description} link={link}/></Grid> })}
       </Grid>
     </div>
