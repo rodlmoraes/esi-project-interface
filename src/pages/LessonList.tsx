@@ -1,5 +1,5 @@
 import api from '../services/api'
-import LessonCard from '../components/Card'
+import LessonCard from '../components/LessonCard'
 
 import React, { useEffect, useState } from 'react'
 import { createStyles, makeStyles } from '@material-ui/core/styles'
@@ -8,9 +8,9 @@ import Button from '@material-ui/core/Button'
 import { Typography, Card, Grid} from '@material-ui/core'
 
 type Lesson = {
-  name: string,
-  description: string,
-  link: string,
+  name: string
+  description: string
+  link: string
 }
 
 export default function LessonList() {
@@ -34,12 +34,12 @@ export default function LessonList() {
         </Grid>
         <Grid xs={12}>
           <Button
-            onClick={ListLessons}
+            onClick={listLessons}
           >
             Carregar aulas
           </Button>
         </Grid>
-        {lessons.map({ name, description, link } => { return <Grid xs={3}><LessonCard name={name} description={description} link={link}/></Grid> })}
+        {lessons.map(({  name, description, link }) => { return <Grid xs={3}><LessonCard name={name} description={description} link={link}/></Grid> })}
       </Grid>
     </div>
   )
