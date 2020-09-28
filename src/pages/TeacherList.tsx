@@ -1,4 +1,3 @@
-import { PAGE_NAME } from '../constants'
 import api from '../services/api'
 import LessonCard from '../components/Card'
 
@@ -22,7 +21,7 @@ export default function TeacherList() {
     <div className={classes.root}>
       <Grid container spacing={3}>
         <Grid item xs={12}>
-          <Typography variant='h3' color='textPrimary'>{PAGE_NAME}</Typography>
+          <Typography variant='h3' color='textPrimary'>Aulas disponíveis</Typography>
         </Grid>
         <Grid xs={12}>
           <Button
@@ -31,7 +30,7 @@ export default function TeacherList() {
             Carregar aulas
           </Button>
         </Grid>
-        {lessons.map((lesson) => { return <Grid xs={3}><LessonCard name={lesson["name"]} description={lesson["description"]}/></Grid> })}
+        {lessons.map((lesson) => { return <Grid xs={3}><LessonCard name={lesson["name"]} description={lesson["description"]} link={lesson["link"]}/></Grid> })}
       </Grid>
     </div>
   )
