@@ -30,7 +30,7 @@ export default function LessonList() {
     <div className={classes.root}>
       <Grid container spacing={3}>
         <Grid item xs={12}>
-          <Typography variant='h3' color='textPrimary'>{PAGE_NAME}</Typography>
+          <Typography variant='h3' color='textPrimary'>Aulas disponíveis</Typography>
         </Grid>
         <Grid xs={12}>
           <Button

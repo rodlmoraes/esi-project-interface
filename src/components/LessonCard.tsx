@@ -11,16 +11,17 @@ import { red } from '@material-ui/core/colors'
 import TeacherImg from '../assets/images/9k.png'
 import Button from '@material-ui/core/Button'
 
-interface ILessonCardProps {
-  name?: string
-  description?: string
+type ILessonCardProps = {
+  name: string
+  description: string
+  link: string
 }
 
 const useStyles = makeStyles(() =>
   createStyles({
     root: {
-      maxWidth: 345,
-      height: 450,
+      maxWidth: '22rem',
+      height: '28rem',
       borderRadius: 15,
     },
     media: {
@@ -41,22 +42,22 @@ const useStyles = makeStyles(() =>
   }),
 )
 
-export default function LessonCard (props:ILessonCardProps) {
+export default function LessonCard ({name, description, link}:ILessonCardProps) {
   const classes = useStyles()
 
   return (
     <Card className={classes.root}>
       <CardHeader
-        title={props.name}
+        title={name}
       />
       <CardMedia
         className={classes.media}
         image={TeacherImg}
-        title={props.name}
+        title={name}
       />
       <CardContent>
         <Typography variant='body2' component='p'>
-          {props.description}
+          {description}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
