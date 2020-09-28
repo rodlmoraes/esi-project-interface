@@ -41,7 +41,7 @@ const useStyles = makeStyles(() =>
   }),
 )
 
-export default function LessonCard ({ name, description, link }:LessonCardProps) {
+export default function LessonCard({ name, description, link }:LessonCardProps) {
   const classes = useStyles()
 
   return (
@@ -57,6 +57,8 @@ export default function LessonCard ({ name, description, link }:LessonCardProps)
       <CardContent>
         <Typography variant='body2' component='p'>
           {description}
+          <br/>
+          {link}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
