@@ -2,7 +2,7 @@ import React from 'react'
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
-import RecipeReviewCard from '../components/Card'
+import LessonCard from '../components/Card'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -27,13 +27,13 @@ export default function NestedGrid() {
     return (
       <React.Fragment>
         <Grid item xs={4}>
-          <Paper className={classes.paper}><RecipeReviewCard/></Paper>
+          <Paper className={classes.paper}></Paper>
         </Grid>
         <Grid item xs={4}>
-          <Paper className={classes.paper}><RecipeReviewCard/></Paper>
+          <Paper className={classes.paper}></Paper>
         </Grid>
         <Grid item xs={4}>
-          <Paper className={classes.paper}><RecipeReviewCard/></Paper>
+          <Paper className={classes.paper}></Paper>
         </Grid>
       </React.Fragment>
     )

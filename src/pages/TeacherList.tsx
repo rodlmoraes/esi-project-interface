@@ -1,14 +1,15 @@
-import React, { useState } from 'react'
 import { PAGE_NAME } from '../constants'
+import api from '../services/api'
+import LessonCard from '../components/Card'
+
+import React, { useState } from 'react'
 import { createStyles, makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
-import api from '../services/api'
 import Button from '@material-ui/core/Button'
 import { Typography, Card, Grid} from '@material-ui/core'
-import NestedGrid from '../components/Grid'
 
 export default function TeacherList() {
-  const [lessons, setLessons] = useState<Lesson[]>([])
+  const [lessons, setLessons] = useState([])
   const [query, setQuery] = useState('')
   const classes = useStyles()
 
@@ -23,25 +24,14 @@ export default function TeacherList() {
         <Grid item xs={12}>
           <Typography variant='h3' color='textPrimary'>{PAGE_NAME}</Typography>
         </Grid>
-        <Grid item xs={12}>
-          <TextField
-            margin='normal'
-            placeholder='busca'
-            variant='outlined'
-            value={query}
-            onChange= {e => { setQuery(e.target.value) }}
-          />
+        <Grid xs={12}>
           <Button
-            className={classes.button}
-            variant='contained'
-            color='secondary'
-            onClick={ListLessons}>
-              Buscar
+            onClick={ListLessons}
+          >
+            Carregar aulas
           </Button>
         </Grid>
-        <Grid item xs={12}>
-          {lessons.map((lesson, key) => { return <Card key={key} className={classes.root}>{lesson.name}</Card> })}
-        </Grid>
+        {lessons.map((lesson) => { return <Grid xs={3}><LessonCard name={lesson["name"]} description={lesson["description"]}/></Grid> })}
       </Grid>
     </div>
   )
