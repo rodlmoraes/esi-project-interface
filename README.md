@@ -1,12 +1,15 @@
-# HomeWorkout Interface
+# HomeWorkout INTERFACE
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/157047ae1ac3dcbbfeb2/maintainability)](https://codeclimate.com/github/rodlmoraes/esi-project-interface/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/157047ae1ac3dcbbfeb2/test_coverage)](https://codeclimate.com/github/rodlmoraes/esi-project-interface/test_coverage)
 [![Build Status](https://travis-ci.org/rodlmoraes/esi-project-interface.svg?branch=master)](https://travis-ci.org/rodlmoraes/esi-project-interface)
 
-**Heroku App:** https://homeworkout.herokuapp.com/
+**INTERFACE:** https://homeworkout.herokuapp.com
+**API:** https://salutis.herokuapp.com
 
-**Backend Repo:** https://github.com/CarolGalvao/esi-project
+**Repositório da API:** https://github.com/CarolGalvao/esi-project
+
+**PivotalTracker:** https://www.pivotaltracker.com/n/projects/2466931
 
 ## Integrantes
 
