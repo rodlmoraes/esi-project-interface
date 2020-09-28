@@ -1,20 +1,18 @@
+import api from '../services/api'
+import LessonCard from '../components/LessonCard'
+
 import React, { useEffect, useState } from 'react'
 import { createStyles, makeStyles } from '@material-ui/core/styles'
-import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
-import { Typography } from '@material-ui/core'
-
-import api from '../services/api'
+import { Typography, Grid} from '@material-ui/core'
 
 type Lesson = {
-  name: string,
-  description: string,
-  link: string,
+  name: string
+  description: string
+  link: string
 }
 
 export default function LessonList() {
   const [lessons, setLessons] = useState<Lesson[]>([])
-  const [query, setQuery] = useState('')
   const classes = useStyles()
 
   const listLessons = async () => {
@@ -25,26 +23,14 @@ export default function LessonList() {
   useEffect(() => { listLessons() }, [])
 
   return (
-    <>
-      <Typography variant='h3'>Cursos disponíveis</Typography>
-      <TextField
-        margin='normal'
-        placeholder='busca'
-        variant='outlined'
-        value={query}
-        onChange= {e => { setQuery(e.target.value) }}
-      />
-      <Button
-        className={classes.button}
-        variant='contained'
-        color='secondary'
-        onClick={listLessons}>
-          Buscar
-      </Button>
-      <ul>
-        {lessons.map((lesson, key) => <li key={key}>{lesson.name}</li>)}
-      </ul>
-    </>
+    <div className={classes.root}>
+      <Grid container spacing={3}>
+        <Grid item xs={12}>
+          <Typography variant='h3' color='textPrimary'>Aulas disponíveis</Typography>
+        </Grid>
+        {lessons.map(({  name, description, link }) => { return <Grid xs={3}><LessonCard name={name} description={description} link={link}/></Grid> })}
+      </Grid>
+    </div>
   )
 }
 

@@ -5,16 +5,22 @@ import CardHeader from '@material-ui/core/CardHeader'
 import CardMedia from '@material-ui/core/CardMedia'
 import CardContent from '@material-ui/core/CardContent'
 import CardActions from '@material-ui/core/CardActions'
-import Avatar from '@material-ui/core/Avatar'
 import Typography from '@material-ui/core/Typography'
 import { red } from '@material-ui/core/colors'
 import TeacherImg from '../assets/images/9k.png'
 import Button from '@material-ui/core/Button'
 
+type LessonCardProps = {
+  name: string
+  description: string
+  link: string
+}
+
 const useStyles = makeStyles(() =>
   createStyles({
     root: {
-      maxWidth: 345,
+      maxWidth: '22rem',
+      height: '28rem',
       borderRadius: 15,
     },
     media: {
@@ -27,36 +33,30 @@ const useStyles = makeStyles(() =>
     button: {
       width: '250px',
       height: '50px',
-      margin: '3.2rem',
+      marginLeft: '3.2rem',
+      marginRight: '3.2rem',
       fontWeight: 600,
       borderRadius: 15,
     },
   }),
 )
 
-export default function LessonCard() {
+export default function LessonCard ({ name, description, link }:LessonCardProps) {
   const classes = useStyles()
 
   return (
     <Card className={classes.root}>
       <CardHeader
-        avatar={
-          <Avatar aria-label='recipe' className={classes.avatar}>
-            R
-          </Avatar>
-        }
-        title='Aula de Zmba'
-        subheader='September 14, 2020'
+        title={name}
       />
       <CardMedia
         className={classes.media}
         image={TeacherImg}
-        title='Paella dish'
+        title={name}
       />
       <CardContent>
         <Typography variant='body2' component='p'>
-          Aula para dançar bastante e emagrecer se divertindo muito observando um professor
-          gostoso para animar os olhos também.
+          {description}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
