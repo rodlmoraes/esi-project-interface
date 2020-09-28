@@ -11,7 +11,7 @@ import { red } from '@material-ui/core/colors'
 import TeacherImg from '../assets/images/9k.png'
 import Button from '@material-ui/core/Button'
 
-type ILessonCardProps = {
+type LessonCardProps = {
   name: string
   description: string
   link: string
@@ -42,7 +42,7 @@ const useStyles = makeStyles(() =>
   }),
 )
 
-export default function LessonCard ({name, description, link}:ILessonCardProps) {
+export default function LessonCard ({ name, description, link }:LessonCardProps) {
   const classes = useStyles()
 
   return (

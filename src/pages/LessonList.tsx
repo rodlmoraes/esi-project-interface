@@ -39,9 +39,7 @@ export default function LessonList() {
             Carregar aulas
           </Button>
         </Grid>
-        <Grid item xs={12}>
-          {lessons.map((lesson) => { return <Card className={classes.root}>{lesson["name"]}</Card> })}
-        </Grid>
+        {lessons.map({ name, description, link } => { return <Grid xs={3}><LessonCard name={name} description={description} link={link}/></Grid> })}
       </Grid>
     </div>
   )
