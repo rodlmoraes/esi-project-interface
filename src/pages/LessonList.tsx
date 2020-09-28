@@ -3,9 +3,7 @@ import LessonCard from '../components/LessonCard'
 
 import React, { useEffect, useState } from 'react'
 import { createStyles, makeStyles } from '@material-ui/core/styles'
-import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
-import { Typography, Card, Grid} from '@material-ui/core'
+import { Typography, Grid} from '@material-ui/core'
 
 type Lesson = {
   name: string
@@ -15,7 +13,6 @@ type Lesson = {
 
 export default function LessonList() {
   const [lessons, setLessons] = useState<Lesson[]>([])
-  const [query, setQuery] = useState('')
   const classes = useStyles()
 
   const listLessons = async () => {
