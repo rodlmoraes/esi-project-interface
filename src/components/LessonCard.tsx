@@ -11,10 +11,16 @@ import { red } from '@material-ui/core/colors'
 import TeacherImg from '../assets/images/9k.png'
 import Button from '@material-ui/core/Button'
 
+interface ILessonCardProps {
+  name?: string
+  description?: string
+}
+
 const useStyles = makeStyles(() =>
   createStyles({
     root: {
       maxWidth: 345,
+      height: 450,
       borderRadius: 15,
     },
     media: {
@@ -27,36 +33,30 @@ const useStyles = makeStyles(() =>
     button: {
       width: '250px',
       height: '50px',
-      margin: '3.2rem',
+      marginLeft: '3.2rem',
+      marginRight: '3.2rem',
       fontWeight: 600,
       borderRadius: 15,
     },
   }),
 )
 
-export default function LessonCard() {
+export default function LessonCard (props:ILessonCardProps) {
   const classes = useStyles()
 
   return (
     <Card className={classes.root}>
       <CardHeader
-        avatar={
-          <Avatar aria-label='recipe' className={classes.avatar}>
-            R
-          </Avatar>
-        }
-        title='Aula de Zmba'
-        subheader='September 14, 2020'
+        title={props.name}
       />
       <CardMedia
         className={classes.media}
         image={TeacherImg}
-        title='Paella dish'
+        title={props.name}
       />
       <CardContent>
         <Typography variant='body2' component='p'>
-          Aula para dançar bastante e emagrecer se divertindo muito observando um professor
-          gostoso para animar os olhos também.
+          {props.description}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>

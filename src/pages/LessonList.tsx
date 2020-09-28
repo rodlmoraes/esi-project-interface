@@ -1,8 +1,10 @@
+import api from '../services/api'
+import LessonCard from '../components/Card'
+
 import React, { useEffect, useState } from 'react'
 import { createStyles, makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
-import api from '../services/api'
 import { Typography, Card, Grid} from '@material-ui/core'
 
 type Lesson = {
@@ -30,20 +32,11 @@ export default function LessonList() {
         <Grid item xs={12}>
           <Typography variant='h3' color='textPrimary'>{PAGE_NAME}</Typography>
         </Grid>
-        <Grid item xs={12}>
-          <TextField
-            margin='normal'
-            placeholder='busca'
-            variant='outlined'
-            value={query}
-            onChange= {e => { setQuery(e.target.value) }}
-          />
+        <Grid xs={12}>
           <Button
-            className={classes.button}
-            variant='contained'
-            color='secondary'
-            onClick={ListLessons}>
-              Buscar
+            onClick={ListLessons}
+          >
+            Carregar aulas
           </Button>
         </Grid>
         <Grid item xs={12}>

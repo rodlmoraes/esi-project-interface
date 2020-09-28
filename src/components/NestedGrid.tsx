@@ -11,13 +11,13 @@ export default function NestedGrid() {
     return (
       <>
         <Grid item xs={4}>
-          <Paper className={classes.paper}><LessonCard/></Paper>
+          <Paper className={classes.paper}></Paper>
         </Grid>
         <Grid item xs={4}>
-          <Paper className={classes.paper}><LessonCard/></Paper>
+          <Paper className={classes.paper}></Paper>
         </Grid>
         <Grid item xs={4}>
-          <Paper className={classes.paper}><LessonCard/></Paper>
+          <Paper className={classes.paper}></Paper>
         </Grid>
       </>
     )
