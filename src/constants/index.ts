@@ -1,4 +1,3 @@
-export const PAGE_NAME = 'Cursos disponíveis'
 export const COLOR_PALLETE = {
   alloy_orange: 'C45E1A',
   carrot_orange: 'F29C29',
