@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { createStyles, makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
 import { Typography, Card } from '@material-ui/core'
+import Header from 'src/components/Header'
 
 import TextInput from 'src/components/TextInput'
 
@@ -41,43 +42,46 @@ export default function LessonForm() {
   const classes = useStyles()
 
   return (
-    <Card className={classes.root}>
-      <Typography variant='h3'>Cadastro de Aula</Typography>
-      <TextInput
-        label='Nome da aula'
-        onChange= {e => { setLessonName(e.target.value) }}
-        placeholder='Aula de'
-        value={lessonName}
-      />
-      <TextInput
-        label='Nome do Professor'
-        onChange= {e => { setTeacherName(e.target.value) }}
-        placeholder='Nome'
-        value={teacherName}
-      />
-      <TextInput
-        label='Link da Aula'
-        onChange= {e => { setLink(e.target.value) }}
-        placeholder='Link do Youtube'
-        value={link}
-      />
-      <TextInput
-        label='Descrição da Aula'
-        multiline
-        onChange= {e => { setDescription(e.target.value) }}
-        placeholder='Descrição'
-        value={description}
-      />
-      <Button
-        className={classes.button}
-        color='secondary'
-        onClick={handleCreateClass}
-        size='large'
-        variant='contained'
-      >
+    <>
+      <Header/>
+      <Card className={classes.root}>
+        <Typography variant='h3'>Cadastro de Aula</Typography>
+        <TextInput
+          label='Nome da aula'
+          onChange= {e => { setLessonName(e.target.value) }}
+          placeholder='Aula de'
+          value={lessonName}
+        />
+        <TextInput
+          label='Nome do Professor'
+          onChange= {e => { setTeacherName(e.target.value) }}
+          placeholder='Nome'
+          value={teacherName}
+        />
+        <TextInput
+          label='Link da Aula'
+          onChange= {e => { setLink(e.target.value) }}
+          placeholder='Link do Youtube'
+          value={link}
+        />
+        <TextInput
+          label='Descrição da Aula'
+          multiline
+          onChange= {e => { setDescription(e.target.value) }}
+          placeholder='Descrição'
+          value={description}
+        />
+        <Button
+          className={classes.button}
+          color='secondary'
+          onClick={handleCreateClass}
+          size='large'
+          variant='contained'
+        >
           Salvar Cadastro
-      </Button>
-    </Card>
+        </Button>
+      </Card>
+    </>
   )
 }
 
