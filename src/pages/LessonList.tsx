@@ -22,9 +22,10 @@ export default function LessonList() {
     const response = await api.get('lessons')
     console.log(response.data.data)
     setLessons(response.data.data.filter( ({ name, description, link }:Lesson) => {
+      var queryRegex = RegExp(`.*${query}.*`, "gi")
       return (query === "") ?
         true :
-        name.match(`.*${query}.*`) || description.match(`.*${query}.*`)
+        name.match(queryRegex) || description.match(queryRegex)
     }))
   }
 
