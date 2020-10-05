@@ -20,7 +20,6 @@ export default function LessonList() {
 
   const listLessons = async () => {
     const response = await api.get('lessons')
-    console.log(response.data.data)
     setLessons(response.data.data.filter( ({ name, description, link }:Lesson) => {
       var queryRegex = RegExp(`.*${query}.*`, "gi")
       return (query === "") ?
