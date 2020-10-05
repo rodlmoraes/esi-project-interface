@@ -16,8 +16,8 @@ export default function LessonList() {
   const classes = useStyles()
 
   const listLessons = async () => {
-    const response = await api.get('lessons')
-    setLessons(response.data.data)
+    const response = await api.get('/lessons')
+    setLessons(response.data)
   }
 
   useEffect(() => { listLessons() }, [])
@@ -28,7 +28,7 @@ export default function LessonList() {
         <Grid item xs={12}>
           <Typography variant='h3' color='textPrimary'>Aulas disponíveis</Typography>
         </Grid>
-        {lessons.map(({ name, description, link }, key) => (<Grid key={key} xs={3}>
+        {lessons.map(({ name, description, link }, key) => (<Grid key={key} item xs={3}>
           <LessonCard name={name} description={description} link={link}/>
         </Grid>))}
       </Grid>
