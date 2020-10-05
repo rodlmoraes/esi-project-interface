@@ -17,15 +17,9 @@ export default function LessonList() {
   const [query, setQuery] = useState('')
   const classes = useStyles()
 
-  const listLessons = async () => {
-    const { data } = await api.get('/lessons')
-    const filteredLessons = data
-      .filter(({ name, description }: Lesson) => name.includes(query) || description.includes(query))
-
-    setLessons(filteredLessons)
-  }
-
-  useEffect(() => { listLessons() }, [query])
+  useEffect(() => {
+    listLessons(query).then(setLessons)
+  }, [query])
 
   return (
     <div className={classes.root}>
@@ -43,6 +37,12 @@ export default function LessonList() {
       </Grid>
     </div>
   )
+}
+
+const listLessons = async (query: string) => {
+  const { data } = await api.get('/lessons')
+  return data
+    .filter(({ name, description }: Lesson) => name.includes(query) || description.includes(query))
 }
 
 const useStyles = makeStyles(() =>
