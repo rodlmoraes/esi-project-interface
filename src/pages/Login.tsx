@@ -1,35 +1,13 @@
 import { Button, Card, createStyles, makeStyles, Typography } from '@material-ui/core'
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
 import TextInput from 'src/components/TextInput'
-
-import api from 'src/services/api'
+import { useAuth } from 'src/contexts/auth'
 
 export default function Login() {
-  const history = useHistory()
+  const { signIn } = useAuth()
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-
-  const handleCreateClass = async () => {
-    try {
-      const response = await api.post('/teacher_auth/sign_in', {
-        email,
-        password,
-      })
-      const { headers, headers: { uid, client } } = response
-      api.defaults.headers.common = {
-        ...api.defaults.headers.common,
-        'access-token': headers['access-token'],
-        uid,
-        client,
-      }
-      alert('Você está dentro!')
-      history.push('/cadastrar-aula')
-    } catch {
-      alert('Erro ao tentar entrar!')
-    }
-  }
 
   const classes = useStyles()
 
@@ -52,7 +30,7 @@ export default function Login() {
       <Button
         className={classes.button}
         color='secondary'
-        onClick={handleCreateClass}
+        onClick={() => signIn(email, password)}
         size='large'
         variant='contained'
       >

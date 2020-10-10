@@ -1,19 +1,24 @@
-
 import React from 'react'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom'
+
+import { useAuth } from 'src/contexts/auth'
 
 import LessonList from './LessonList'
 import LessonForm from './LessonForm'
 import Login from './Login'
 
-function Routes() {
+export default function Routes() {
+  const { signedIn } = useAuth()
+
   return (
     <BrowserRouter>
-      <Route path='/' component={LessonList} exact />
-      <Route path='/entrar' component={Login} />
-      <Route path='/cadastrar-aula' component={LessonForm}/>
+      <Switch>
+        {signedIn
+          ? <Route path='/cadastrar-aula' component={LessonForm}/>
+          : <Route path='/entrar' component={Login} />}
+        <Route path='/' component={LessonList} exact />
+        <Redirect to={signedIn ? '/cadastrar-aula' : '/'} />
+      </Switch>
     </BrowserRouter>
   )
 }
-
-export default Routes
