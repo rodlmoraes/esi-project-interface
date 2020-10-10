@@ -1,9 +1,9 @@
 import api from '../services/api'
 import LessonCard from '../components/LessonCard'
-
 import React, { useEffect, useState } from 'react'
 import { createStyles, makeStyles } from '@material-ui/core/styles'
 import { Typography, Grid } from '@material-ui/core'
+import Header from 'src/components/Header'
 
 type Lesson = {
   name: string
@@ -23,16 +23,19 @@ export default function LessonList() {
   useEffect(() => { listLessons() }, [])
 
   return (
-    <div className={classes.root}>
-      <Grid container spacing={3}>
-        <Grid item xs={12}>
-          <Typography variant='h3' color='textPrimary'>Aulas disponíveis</Typography>
+    <>
+      <Header/>
+      <div className={classes.root}>
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <Typography variant='h3' color='textPrimary'>Aulas disponíveis</Typography>
+          </Grid>
+          {lessons.map(({ name, description, link }, key) => (<Grid key={key} xs={3}>
+            <LessonCard name={name} description={description} link={link}/>
+          </Grid>))}
         </Grid>
-        {lessons.map(({ name, description, link }, key) => (<Grid key={key} xs={3}>
-          <LessonCard name={name} description={description} link={link}/>
-        </Grid>))}
-      </Grid>
-    </div>
+      </div>
+    </>
   )
 }
 
