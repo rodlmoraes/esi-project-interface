@@ -70,7 +70,7 @@ export default function Header() {
           },
         }}
         getContentAnchorEl={null}
-        >
+      >
         <MenuItem onClick={handleChangetoLogin}>Login</MenuItem>
         <MenuItem onClick={handleChangetoClassRegister}>Cadastrar aula</MenuItem>
         <MenuItem onClick={handleChangetoClassList}>Lista de aulas</MenuItem>
