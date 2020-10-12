@@ -40,9 +40,8 @@ export default function LessonList() {
 }
 
 const listLessons = async (query: string) => {
-  const { data } = await api.get('/lessons')
+  const { data } = await api.get(`/lessons?query=${query}`)
   return data
-    .filter(({ name, description }: Lesson) => name.includes(query) || description.includes(query))
 }
 
 const useStyles = makeStyles(() =>
