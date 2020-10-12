@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { createStyles, makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
 import { Typography, Card } from '@material-ui/core'
+import Header from 'src/components/Header'
 
 import TextInput from 'src/components/TextInput'
 
@@ -34,7 +35,9 @@ export default function LessonForm() {
   const classes = useStyles()
 
   return (
-    <Card className={classes.root}>
+    <>
+      <Header/>
+      <Card className={classes.root}>
       <Typography variant='h3'>Cadastro de Aula</Typography>
       <TextInput
         label='Nome da aula'
@@ -63,8 +66,9 @@ export default function LessonForm() {
         variant='contained'
       >
           Salvar Cadastro
-      </Button>
-    </Card>
+        </Button>
+      </Card>
+    </>
   )
 }
 
