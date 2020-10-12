@@ -41,7 +41,7 @@ const useStyles = makeStyles(() =>
   }),
 )
 
-export default function LessonCard({ name, description, link }:LessonCardProps) {
+export default function LessonCard({ name, description, link }: LessonCardProps) {
   const classes = useStyles()
 
   return (
