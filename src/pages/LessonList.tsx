@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Header from 'src/components/Header'
 import { createStyles, makeStyles } from '@material-ui/core/styles'
 import { Typography, Grid } from '@material-ui/core'
 import TextInput from 'src/components/TextInput'
@@ -22,20 +23,23 @@ export default function LessonList() {
   }, [query])
 
   return (
-    <div className={classes.root}>
-      <Typography variant='h3' color='textPrimary'>Aulas disponíveis</Typography>
-      <TextInput
-        label='Busca'
-        onChange= {e => { setQuery(e.target.value) }}
-        placeholder='Nome ou descrição da aula'
-        value={query}
-      />
-      <Grid container spacing={3}>
-        {lessons.map(({ name, description, link }, key) => (<Grid key={key} item xs={3}>
-          <LessonCard name={name} description={description} link={link}/>
-        </Grid>))}
-      </Grid>
-    </div>
+    <>
+      <Header/>
+       <div className={classes.root}>
+        <Typography variant='h3' color='textPrimary'>Aulas disponíveis</Typography>
+        <TextInput
+          label='Busca'
+          onChange= {e => { setQuery(e.target.value) }}
+          placeholder='Nome ou descrição da aula'
+          value={query}
+        />
+        <Grid container spacing={3}>
+          {lessons.map(({ name, description, link }, key) => (<Grid key={key} item xs={3}>
+            <LessonCard name={name} description={description} link={link}/>
+          </Grid>))}
+        </Grid>
+      </div>
+    </>
   )
 }
 
