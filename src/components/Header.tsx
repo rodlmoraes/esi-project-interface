@@ -38,7 +38,7 @@ export default function Header() {
   }
 
   const handleChangetoClassRegister = () => {
-    history.push('/')
+    history.push('/cadastrar-aula')
   }
 
   const handleChangetoClassList = () => {
@@ -79,7 +79,7 @@ export default function Header() {
         <Typography variant='h6'>
             HomeWorkout
         </Typography>
-        <IconButton color='inherit' >
+        <IconButton color='inherit' onClick={handleChangetoLogin} >
           <AccountCircle />
         </IconButton>
       </Toolbar>

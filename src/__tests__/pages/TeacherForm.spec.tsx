@@ -12,3 +12,8 @@ test('renders LessonForm', () => {
   getAllByText('Descrição da Aula')
   getByText('Salvar Cadastro')
 })
+
+test('renders HeaderLessonForm', () => {
+  const { getByText, getAllByText } = render(<LessonForm />)
+  getByText('HomeWorkout')
+})
