@@ -34,7 +34,7 @@ export default function Header() {
   }
 
   const handleChangetoLogin = () => {
-    history.push('/')
+    history.push('/entrar')
   }
 
   const handleChangetoClassRegister = () => {

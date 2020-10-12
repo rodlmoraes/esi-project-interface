@@ -2,6 +2,7 @@ import { Button, Card, createStyles, makeStyles, Typography } from '@material-ui
 import React, { useState } from 'react'
 import TextInput from 'src/components/TextInput'
 import { useAuth } from 'src/contexts/auth'
+import Header from 'src/components/Header'
 
 export default function Login() {
   const { signIn } = useAuth()
@@ -12,31 +13,34 @@ export default function Login() {
   const classes = useStyles()
 
   return (
-    <Card className={classes.root}>
-      <Typography variant='h3'>Entre e adicione novas aulas!</Typography>
-      <TextInput
-        label='Email'
-        onChange= {e => { setEmail(e.target.value) }}
-        placeholder='Digite aqui seu email'
-        value={email}
-      />
-      <TextInput
-        label='Senha'
-        onChange= {e => { setPassword(e.target.value) }}
-        placeholder='Digite aqui sua senha'
-        value={password}
-        hidden
-      />
-      <Button
-        className={classes.button}
-        color='secondary'
-        onClick={() => signIn(email, password)}
-        size='large'
-        variant='contained'
-      >
-          Entrar
-      </Button>
-    </Card>
+    <>
+      <Header/>
+      <Card className={classes.root}>
+        <Typography variant='h3'>Entre e adicione novas aulas!</Typography>
+        <TextInput
+          label='Email'
+          onChange= {e => { setEmail(e.target.value) }}
+          placeholder='Digite aqui seu email'
+          value={email}
+        />
+        <TextInput
+          label='Senha'
+          onChange= {e => { setPassword(e.target.value) }}
+          placeholder='Digite aqui sua senha'
+          value={password}
+          hidden
+        />
+        <Button
+          className={classes.button}
+          color='secondary'
+          onClick={() => signIn(email, password)}
+          size='large'
+          variant='contained'
+        >
+            Entrar
+        </Button>
+      </Card>
+    </>
   )
 }
 
