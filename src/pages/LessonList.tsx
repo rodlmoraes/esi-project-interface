@@ -1,9 +1,11 @@
-import api from '../services/api'
-import LessonCard from '../components/LessonCard'
 import React, { useEffect, useState } from 'react'
+import Header from 'src/components/Header'
 import { createStyles, makeStyles } from '@material-ui/core/styles'
 import { Typography, Grid } from '@material-ui/core'
-import Header from 'src/components/Header'
+import TextInput from 'src/components/TextInput'
+
+import api from '../services/api'
+import LessonCard from '../components/LessonCard'
 
 type Lesson = {
   name: string
@@ -13,30 +15,38 @@ type Lesson = {
 
 export default function LessonList() {
   const [lessons, setLessons] = useState<Lesson[]>([])
+  const [query, setQuery] = useState('')
   const classes = useStyles()
 
-  const listLessons = async () => {
-    const response = await api.get('lessons')
-    setLessons(response.data.data)
-  }
-
-  useEffect(() => { listLessons() }, [])
+  useEffect(() => {
+    listLessons(query).then(setLessons)
+  }, [query])
 
   return (
     <>
       <Header/>
-      <div className={classes.root}>
+       <div className={classes.root}>
+        <Typography variant='h3' color='textPrimary'>Aulas disponíveis</Typography>
+        <TextInput
+          label='Busca'
+          onChange= {e => { setQuery(e.target.value) }}
+          placeholder='Nome ou descrição da aula'
+          value={query}
+        />
         <Grid container spacing={3}>
-          <Grid item xs={12}>
-            <Typography variant='h3' color='textPrimary'>Aulas disponíveis</Typography>
-          </Grid>
-          {lessons.map(({ name, description, link }, key) => (<Grid key={key} xs={3}>
+          {lessons.map(({ name, description, link }, key) => (<Grid key={key} item xs={3}>
             <LessonCard name={name} description={description} link={link}/>
           </Grid>))}
         </Grid>
       </div>
     </>
   )
+}
+
+const listLessons = async (query: string) => {
+  const { data } = await api.get('/lessons')
+  return data
+    .filter(({ name, description }: Lesson) => name.includes(query) || description.includes(query))
 }
 
 const useStyles = makeStyles(() =>

@@ -1,13 +1,17 @@
 import React from 'react'
-import Routes from './pages/Routes'
 import { ThemeProvider, CssBaseline } from '@material-ui/core'
+
+import Routes from './pages/Routes'
+import { AuthProvider } from './contexts/auth'
 import theme from './assets/theme'
 
 export default function App() {
   return (
     <ThemeProvider theme={theme} >
       <CssBaseline />
-      <Routes />
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
     </ThemeProvider>
   )
 }
